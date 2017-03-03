@@ -1,0 +1,16 @@
+{
+  "name": "throng-example",
+  "version": "1.0.0",
+  "description": "Example of how trhogn could be used for starting few processes in concurent mode",
+  "main": "throng.js",
+  "dependencies": {
+    "request": "^2.79.0",
+    "throng": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Igor Boky",
+  "license": "MIT"
+}
