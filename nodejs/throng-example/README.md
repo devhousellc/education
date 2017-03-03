@@ -1,4 +1,4 @@
-#Throg example
+#Throng example
 
 https://www.npmjs.com/package/throng
 
