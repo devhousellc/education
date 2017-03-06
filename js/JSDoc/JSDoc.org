@@ -1,0 +1,115 @@
+#+OPTIONS: toc:nil num:nil timestamp:nil date:nil
+* JSDoc
+Presentation by Lain
+
+Code hacking by Chichivica
+
+
+
+With love for DevHouse
+
+* What is JSDoc?
+JSDoc is an API documentation generator for JavaScript, that helps you what is going on here.
+With JSDoc you can add documentation comments to Your Code.
+JSDoc's purpose is to document the API of your JavaScript application or library. It is assumed that you will want to document things like: namespaces, classes, methods, method parameters, etc.
+
+* How it Works?
+** Just a function
+Here is an example of simple JavaScript function:
+#+BEGIN_SRC JavaScript
+function putSomeText(text) {
+  console.log(text)
+}
+#+END_SRC
+There is good practise to naming functions and argument that way that after you anyone else can understand what in going on in this code,
+but sometimes to understand what this method or class do, you should open the definition and try to understand what happening here.
+** Function with JSDoc
+In that case anyone can understand what this method (or whatever) does.
+#+BEGIN_SRC JavaScript
+ /**
+  * This method take argument and run console log with it
+  * @param {string} text - Text that you want to console.log
+  */
+ function putSomeText(text) {
+   console.log(text)
+}
+#+END_SRC
+* Most important JSDoc keys
+** Description
+Description creates a snippet for method that helps you to understand for what this method or class or whatever.
+#+BEGIN_SRC JavaScript
+ /**
+  * There is description
+  */
+#+END_SRC
+Or it can be like this:
+#+BEGIN_SRC JavaScript
+ /**
+  * @description <there is description>
+  */
+#+END_SRC
+** Param
+Param helps you to understand what arguments should be throwed into this method and aldo what type of arguments should be.
+
+Synonyms:
+- @arg
+- @argument
+#+BEGIN_SRC JavaScript
+ /**
+  * @description
+  * @param {type of arg} arg - description of arg
+  */
+#+END_SRC
+Also you can set an optional param:
+#+BEGIN_SRC JavaScript
+ /**
+  * @description
+  * @param {string=} arg - description of arg
+  */
+#+END_SRC
+** Return
+Return helps you to understand what this method should return.
+#+BEGIN_SRC JavaScript
+ /**
+  * @description
+  * @param
+  * @return {type of returning thing}
+  */
+#+END_SRC
+** Class
+Class helps you to show that this method is a class.
+
+Synonyms:
+- @constructor
+#+BEGIN_SRC JavaScript
+ /**
+  * @description
+  * @class
+  * @param
+  * @return
+  */
+#+END_SRC
+** Private and Public
+In JavaScript community we have an agreement that private methods and variables should be named with underscore before their actual name.
+But you also can help understand to other developers that this method or variable is private with JSDoc.
+#+BEGIN_SRC JavaScript
+ /**
+  * @description
+  * @class
+  * @param
+  * @private
+  * @return
+  */
+#+END_SRC
+And the same for public:
+#+BEGIN_SRC JavaScript
+ /**
+  * @public
+  */
+#+END_SRC
+* Instead ending
+You also can find more information on [[http://usejsdoc.org/][JSDoc.org]]
+
+Thx for listening, presentation can be found on my github.
+
+And now coding time!

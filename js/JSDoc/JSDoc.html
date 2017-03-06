@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+</section>
+<section>
+<section id="slide-orgf43f9f1">
+<h2 id="orgf43f9f1">JSDoc</h2>
+<p>
+Presentation by Lain
+</p>
+
+<p>
+Code hacking by Chichivica
+</p>
+
+
+
+<p>
+With love for DevHouse
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org7e43a4a">
+<h2 id="org7e43a4a">What is JSDoc?</h2>
+<p>
+JSDoc is an API documentation generator for JavaScript, that helps you what is going on here.
+With JSDoc you can add documentation comments to Your Code.
+JSDoc's purpose is to document the API of your JavaScript application or library. It is assumed that you will want to document things like: namespaces, classes, methods, method parameters, etc.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org6912416">
+<h2 id="org6912416">How it Works?</h2>
+<div class="outline-text-2" id="text-org6912416">
+</div></section>
+<section id="slide-orgeae8023">
+<h3 id="orgeae8023">Just a function</h3>
+<p>
+Here is an example of simple JavaScript function:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">function putSomeText(text) {
+  console.log(text)
+}
+</pre>
+</div>
+<p>
+There is good practise to naming functions and argument that way that after you anyone else can understand what in going on in this code,
+but sometimes to understand what this method or class do, you should open the definition and try to understand what happening here.
+</p>
+</section>
+<section id="slide-org71abe6b">
+<h3 id="org71abe6b">Function with JSDoc</h3>
+<p>
+In that case anyone can understand what this method (or whatever) does.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript"> /**
+  * This method take argument and run console log with it
+  * @param {string} text - Text that you want to console.log
+  */
+ function putSomeText(text) {
+   console.log(text)
+}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org239b342">
+<h2 id="org239b342">Most important JSDoc keys</h2>
+<div class="outline-text-2" id="text-org239b342">
+</div></section>
+<section id="slide-org03b44b3">
+<h3 id="org03b44b3">Description</h3>
+<p>
+Description creates a snippet for method that helps you to understand for what this method or class or whatever.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * There is description
+ */
+</pre>
+</div>
+<p>
+Or it can be like this:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @description &lt;there is description&gt;
+ */
+</pre>
+</div>
+</section>
+<section id="slide-org61ba698">
+<h3 id="org61ba698">Param</h3>
+<p>
+Param helps you to understand what arguments should be throwed into this method and aldo what type of arguments should be.
+</p>
+
+<p>
+Synonyms:
+</p>
+<ul>
+<li>@arg</li>
+<li>@argument</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @description
+ * @param {type of arg} arg - description of arg
+ */
+</pre>
+</div>
+<p>
+Also you can set an optional param:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @description
+ * @param {string=} arg - description of arg
+ */
+</pre>
+</div>
+</section>
+<section id="slide-orga92fd05">
+<h3 id="orga92fd05">Return</h3>
+<p>
+Return helps you to understand what this method should return.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @description
+ * @param
+ * @return {type of returning thing}
+ */
+</pre>
+</div>
+</section>
+<section id="slide-orgab95366">
+<h3 id="orgab95366">Class</h3>
+<p>
+Class helps you to show that this method is a class.
+</p>
+
+<p>
+Synonyms:
+</p>
+<ul>
+<li>@constructor</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @description
+ * @class
+ * @param
+ * @return
+ */
+</pre>
+</div>
+</section>
+<section id="slide-org1b7ecd3">
+<h3 id="org1b7ecd3">Private and Public</h3>
+<p>
+In JavaScript community we have an agreement that private methods and variables should be named with underscore before their actual name.
+But you also can help understand to other developers that this method or variable is private with JSDoc.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @description
+ * @class
+ * @param
+ * @private
+ * @return
+ */
+</pre>
+</div>
+<p>
+And the same for public:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-JavaScript">/**
+ * @public
+ */
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org5c2c576">
+<h2 id="org5c2c576">Instead ending</h2>
+<p>
+You also can find more information on <a href="http://usejsdoc.org/">JSDoc.org</a>
+</p>
+
+<p>
+Thx for listening, presentation can be found on my github.
+</p>
+
+<p>
+And now coding time!
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
