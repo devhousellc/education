@@ -1,0 +1,60 @@
+#+OPTIONS: toc:nil num:nil timestamp:nil date:nil
+* Docker is awesome
+  Presentation by Lain
+  
+
+  With love for DevHouse and Cakes
+* What is Docker?
+Docker - is a technology that, allows you to package the application into an isolated container.
+No matter what it will be:
+- The web server,
+- Node/Ruby/Python program,
+- DB (Mongo/Sql/Something else)
+With Docker you can not install or configure WM.
+All required software is already on the local machine.
+You just pull the container from DockerHub, start and it works.
+* Why Docker better then regular WM?
+** With regular WM
+For example you have Nginx installed globally,
+aaaand you broke it. Sad isn't it?
+And probably you should spend many time to fix it,
+or just reinstall it and belive that nothing left in the system.
+** With Docker
+Any docker container its a mini WM that contains only what you need and it's already configured.
+You just download needed Docker container from DockerHub, start it and love the world.
+If something breaks, you just restart Docker container and thats it.
+** How is works?
+| Regular WM     | Docker         |
+|----------------+----------------|
+| app            |                |
+|----------------+----------------|
+| libs           | app            |
+|----------------+----------------|
+| guest OS       | libs           |
+|----------------+----------------|
+| hypervisor     | docker engine  |
+|----------------+----------------|
+| HOS            | OS             |
+|----------------+----------------|
+| infrastructure | infrastructure |
+|----------------+----------------|
+* Why should we use Docker?
+Docker containers can helps us to manage our app.
+- Any module is independent, if something happens, only functionality of this module will be unavailable.
+- More security for application.
+- Module system.
+- Easier deployment.
+* It's easy!
+I hope... 
+* Instead ending
+For hosting we use use RPI 3 with Ubuntu.
+You can go to [[http://192.168.1.35:3000]] to see working project.
+Also you can connect to RPI and see CPU usage.
+For this open your terminal and run this command:
+#+BEGIN_SRC bash
+ssh rpi@192.168.1.35
+#+END_SRC
+it will ask that are you sure that want to connect, and password
+#+BEGIN_SRC bash
+0842
+#+END_SRC
