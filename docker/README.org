@@ -1,0 +1,12 @@
+* Docker presentation
+Presentation plan:
+
+- What is Docker?
+- How it works?
+- Why should we use Docker?
+- How we will use it?
+- It's easy!
+
+* Practical usage
+Env:
+- RPI 3 with Ubuntu

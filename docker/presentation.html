@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Artemiy Stepanov)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">Artemiy Stepanov</h2>
+</section>
+<section>
+<section id="slide-orgfb6b715">
+<h2 id="orgfb6b715">Docker is awesome</h2>
+<p>
+Presentation by Lain
+</p>
+
+
+<p>
+With love for DevHouse and Cakes
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org7c0541b">
+<h2 id="org7c0541b">What is Docker?</h2>
+<p>
+Docker - is a technology that, allows you to package the application into an isolated container.
+No matter what it will be:
+</p>
+<ul>
+<li>The web server,</li>
+<li>Node/Ruby/Python program,</li>
+<li>DB (Mongo/Sql/Something else)</li>
+
+</ul>
+<p>
+With Docker you can not install or configure WM.
+All required software is already on the local machine.
+You just pull the container from DockerHub, start and it works.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org58d3065">
+<h2 id="org58d3065">Why Docker better then regular WM?</h2>
+<div class="outline-text-2" id="text-org58d3065">
+</div></section>
+<section id="slide-org71c1307">
+<h3 id="org71c1307">With regular WM</h3>
+<p>
+For example you have Nginx installed globally,
+aaaand you broke it. Sad isn't it?
+And probably you should spend many time to fix it,
+or just reinstall it and belive that nothing left in the system.
+</p>
+</section>
+<section id="slide-org435f630">
+<h3 id="org435f630">With Docker</h3>
+<p>
+Any docker container its a mini WM that contains only what you need and it's already configured.
+You just download needed Docker container from DockerHub, start it and love the world.
+If something breaks, you just restart Docker container and thats it.
+</p>
+</section>
+<section id="slide-org50a9002">
+<h3 id="org50a9002">How is works?</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Regular WM</th>
+<th scope="col" class="org-left">Docker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">app</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">libs</td>
+<td class="org-left">app</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">guest OS</td>
+<td class="org-left">libs</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hypervisor</td>
+<td class="org-left">docker engine</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">HOS</td>
+<td class="org-left">OS</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">infrastructure</td>
+<td class="org-left">infrastructure</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-org896dcb4">
+<h2 id="org896dcb4">Why should we use Docker?</h2>
+<p>
+Docker containers can helps us to manage our app.
+</p>
+<ul>
+<li>Any module is independent, if something happens, only functionality of this module will be unavailable.</li>
+<li>More security for application.</li>
+<li>Module system.</li>
+<li>Easier deployment.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org0303475">
+<h2 id="org0303475">It's easy!</h2>
+<p>
+I hope&#x2026; 
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgbc4e2cc">
+<h2 id="orgbc4e2cc">Instead ending</h2>
+<p>
+For hosting we use use RPI 3 with Ubuntu.
+You can go to <a href="http://192.168.1.35:3000">http://192.168.1.35:3000</a> to see working project.
+Also you can connect to RPI and see CPU usage.
+For this open your terminal and run this command:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">ssh rpi@192.168.1.35
+</pre>
+</div>
+<p>
+it will ask that are you sure that want to connect, and password
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">0842
+</pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
