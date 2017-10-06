@@ -1,0 +1,117 @@
+#+OPTIONS: toc:nil num:nil timestamp:nil date:nil
+* Functional Programming <3
+Created by 0xk175un3 for DevHouse with <3
+* What is functional programming?
+- It's a paradigm
+- It's a code style
+- It's a mindset
+* Functional programming credo
+** Pure functions
+It's must don't have side effects.
+Function must only takes input for computing this output, nothing else should have an effect for output result.
+*** Not functional way
+#+BEGIN_SRC javascript
+let name = 'Lain';
+let greeting = 'Hello ';
+console.log(greeting + name);
+#+END_SRC
+*** Functional way
+#+BEGIN_SRC javascript
+function(name) {
+  return `Hello ${name}!`;
+}
+#+END_SRC
+*** It also makes tests more comfortable
+** High order functions
+Functions be inputs/outputs.
+All of us atleast once already use high order functions.
+#+BEGIN_SRC javascript
+something.map()
+something.filter()
+something.reduce()
+#+END_SRC
+*** REPL (Repeat, Eval, Print, Loop)
+In functional programming languages the workflow is much more easyer (in my opinion),
+bc you can check how work your functions right now without any tests.
+** Data immutability
+There is very good part of functional programming,
+bc of immutability you can always be sure that this variable is exactly what you are expect.
+And also the main point is structural sharing.
+*** Not functional way
+#+BEGIN_SRC javascript
+let cakes = ['cake1', 'cake2', 'cake3'];
+cakes[2] = 'cake9';
+cakes;
+==> ['cake1', 'cake2', 'cake9'];
+#+END_SRC
+*** Functional way
+#+BEGIN_SRC javascript
+let cakes = ['cake1', 'cake2', 'cake3'];
+let newCakes = cakes.map(function (cake) {
+  if (cake == 'cake3') { return 'cake9'; }
+  else { return cake; }
+});
+newCakes;
+==> ['cake1', 'cake2', 'cake9']
+cakes;
+==> ['cake1', 'cake2', 'cake3']
+#+END_SRC
+*** But there is one problem
+Make immutability like this in JS suddenly creates new copies, and its get memory to store that.
+How can we solve this problems? In JS only with libraries. Sad but true.
+*** Javascript libraries for functional programming style
+- Immutable.js (https://facebook.github.io/immutable-js/) --> Immutable data-structures;
+- Mori (http://swannodette.github.io/mori) --> Presistent data-structures from Clojure;
+- Ramda (http://ramdajs.com) - Lamda and pure functions code.
+** Everyone of use most popular FP JS library
+It's Lodash ! :)
+* One more thing...
+Clojure language
+** You should try it once :)
+** Who use clojure?
+ - Amazon
+ - eBay
+ - Netflix
+ - FaceBook
+ - Soundcloud
+ - Spotify
+ - Walmart
+ - NASA !!!
+** Syntax is simple
+- JavaScript
+#+BEGIN_SRC javascript
+function myfn(x, y) {
+  return x*x + y*y;
+}
+
+myfn(3, 6)
+#+END_SRC
+*** First lets make AST with prefix notation
+Its simple
+#+BEGIN_SRC clojure
+["function", "myfn",
+  ["x", "y"],
+  ["+",
+    ["*", "x", "x"],
+    ["*", "y", "y"]]]
+
+["myfn", "3", "6"]
+#+END_SRC
+*** Remove brackets and ","
+#+BEGIN_SRC clojure
+[function myfn
+  [x y]
+  [+
+    [* x x]
+    [* y y]]]
+
+[myfn 4 6]
+#+END_SRC
+*** And here we go
+#+BEGIN_SRC clojure
+(defn myfn [x y]
+  (+ (* x x)
+     (* y y)))
+
+(myfn 3 6)
+#+END_SRC

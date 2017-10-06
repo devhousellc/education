@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(0xk175un3)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">0xk175un3</h2>
+</section>
+<section>
+<section id="slide-org0262273">
+<h2 id="org0262273">Functional Programming &lt;3</h2>
+<p>
+Created by 0xk175un3 for DevHouse with &lt;3
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgacd5ea2">
+<h2 id="orgacd5ea2">What is functional programming?</h2>
+<ul>
+<li>It's a paradigm</li>
+<li>It's a code style</li>
+<li>It's a mindset</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org7c12cea">
+<h2 id="org7c12cea">Functional programming credo</h2>
+<div class="outline-text-2" id="text-org7c12cea">
+</div>
+</section>
+<section id="slide-org98fca74">
+<h3 id="org98fca74">Pure functions</h3>
+<p>
+It's must don't have side effects.
+Function must only takes input for computing this output, nothing else should have an effect for output result.
+</p>
+</section>
+<section id="slide-org8ca5307">
+<h4 id="org8ca5307">Not functional way</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">name</span> = <span style="color: #98be65;">'Lain'</span>;
+<span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">greeting</span> = <span style="color: #98be65;">'Hello '</span>;
+console.log(greeting + name);
+</pre>
+</div>
+</section>
+<section id="slide-orgc016c47">
+<h4 id="orgc016c47">Functional way</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #c678dd; font-weight: bold;">function</span>(<span style="color: #61afef;">name</span>) {
+  <span style="color: #c678dd; font-weight: bold;">return</span> <span style="color: #98be65;">`Hello ${name}!`</span>;
+}
+</pre>
+</div>
+</section>
+<section id="slide-orgb5edc53">
+<h4 id="orgb5edc53">It also makes tests more comfortable</h4>
+</section>
+<section id="slide-orgbc1543a">
+<h3 id="orgbc1543a">High order functions</h3>
+<p>
+Functions be inputs/outputs.
+All of us atleast once already use high order functions.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">something.map()
+something.filter()
+something.reduce()
+</pre>
+</div>
+</section>
+<section id="slide-org8094663">
+<h4 id="org8094663">REPL (Repeat, Eval, Print, Loop)</h4>
+<p>
+In functional programming languages the workflow is much more easyer (in my opinion),
+bc you can check how work your functions right now without any tests.
+</p>
+</section>
+<section id="slide-org3334882">
+<h3 id="org3334882">Data immutability</h3>
+<p>
+There is very good part of functional programming,
+bc of immutability you can always be sure that this variable is exactly what you are expect.
+And also the main point is structural sharing.
+</p>
+</section>
+<section id="slide-org73bf1bd">
+<h4 id="org73bf1bd">Not functional way</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">cakes</span> = [<span style="color: #98be65;">'cake1'</span>, <span style="color: #98be65;">'cake2'</span>, <span style="color: #98be65;">'cake3'</span>];
+cakes[2] = <span style="color: #98be65;">'cake9'</span>;
+cakes;
+==&gt; [<span style="color: #98be65;">'cake1'</span>, <span style="color: #98be65;">'cake2'</span>, <span style="color: #98be65;">'cake9'</span>];
+</pre>
+</div>
+</section>
+<section id="slide-org1c997f3">
+<h4 id="org1c997f3">Functional way</h4>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">cakes</span> = [<span style="color: #98be65;">'cake1'</span>, <span style="color: #98be65;">'cake2'</span>, <span style="color: #98be65;">'cake3'</span>];
+<span style="color: #c678dd; font-weight: bold;">let</span> <span style="color: #61afef;">newCakes</span> = cakes.map(<span style="color: #c678dd; font-weight: bold;">function</span> (<span style="color: #61afef;">cake</span>) {
+  <span style="color: #c678dd; font-weight: bold;">if</span> (cake == <span style="color: #98be65;">'cake3'</span>) { <span style="color: #c678dd; font-weight: bold;">return</span> <span style="color: #98be65;">'cake9'</span>; }
+  <span style="color: #c678dd; font-weight: bold;">else</span> { <span style="color: #c678dd; font-weight: bold;">return</span> cake; }
+});
+newCakes;
+==&gt; [<span style="color: #98be65;">'cake1'</span>, <span style="color: #98be65;">'cake2'</span>, <span style="color: #98be65;">'cake9'</span>]
+cakes;
+==&gt; [<span style="color: #98be65;">'cake1'</span>, <span style="color: #98be65;">'cake2'</span>, <span style="color: #98be65;">'cake3'</span>]
+</pre>
+</div>
+</section>
+<section id="slide-org6b5dd8a">
+<h4 id="org6b5dd8a">But there is one problem</h4>
+<p>
+Make immutability like this in JS suddenly creates new copies, and its get memory to store that.
+How can we solve this problems? In JS only with libraries. Sad but true.
+</p>
+</section>
+<section id="slide-org0787c4d">
+<h4 id="org0787c4d">Javascript libraries for functional programming style</h4>
+<ul>
+<li>Immutable.js (<a href="https://facebook.github.io/immutable-js/">https://facebook.github.io/immutable-js/</a>) &#x2013;&gt; Immutable data-structures;</li>
+<li>Mori (<a href="http://swannodette.github.io/mori">http://swannodette.github.io/mori</a>) &#x2013;&gt; Presistent data-structures from Clojure;</li>
+<li>Ramda (<a href="http://ramdajs.com">http://ramdajs.com</a>) - Lamda and pure functions code.</li>
+
+</ul>
+</section>
+<section id="slide-orgbfe294b">
+<h3 id="orgbfe294b">Everyone of use most popular FP JS library</h3>
+<p>
+It's Lodash ! :)
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgbc884cb">
+<h2 id="orgbc884cb">One more thing&#x2026;</h2>
+<p>
+Clojure language
+</p>
+</section>
+<section id="slide-orgbadcc07">
+<h3 id="orgbadcc07">You should try it once :)</h3>
+</section>
+<section id="slide-orgdc5ba72">
+<h3 id="orgdc5ba72">Who use clojure?</h3>
+<ul>
+<li>Amazon</li>
+<li>eBay</li>
+<li>Netflix</li>
+<li>FaceBook</li>
+<li>Soundcloud</li>
+<li>Spotify</li>
+<li>Walmart</li>
+<li>NASA !!!</li>
+
+</ul>
+</section>
+<section id="slide-orgd4c7de9">
+<h3 id="orgd4c7de9">Syntax is simple</h3>
+<ul>
+<li>JavaScript</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #c678dd; font-weight: bold;">function</span> <span style="color: #61afef;">myfn</span>(<span style="color: #61afef;">x</span>, <span style="color: #61afef;">y</span>) {
+  <span style="color: #c678dd; font-weight: bold;">return</span> x*x + y*y;
+}
+
+myfn(3, 6)
+</pre>
+</div>
+</section>
+<section id="slide-org5cdc31a">
+<h4 id="org5cdc31a">First lets make AST with prefix notation</h4>
+<p>
+Its simple
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-lisp">[<span style="color: #98be65;">"function"</span>, <span style="color: #98be65;">"myfn"</span>,
+  [<span style="color: #98be65;">"x"</span>, <span style="color: #98be65;">"y"</span>],
+  [<span style="color: #98be65;">"+"</span>,
+    [<span style="color: #98be65;">"*"</span>, <span style="color: #98be65;">"x"</span>, <span style="color: #98be65;">"x"</span>],
+    [<span style="color: #98be65;">"*"</span>, <span style="color: #98be65;">"y"</span>, <span style="color: #98be65;">"y"</span>]]]
+
+[<span style="color: #98be65;">"myfn"</span>, <span style="color: #98be65;">"3"</span>, <span style="color: #98be65;">"6"</span>]
+</pre>
+</div>
+</section>
+<section id="slide-org2ecdab0">
+<h4 id="org2ecdab0">Remove brackets and ","</h4>
+<div class="org-src-container">
+
+<pre  class="src src-lisp">[function myfn
+  [x y]
+  [+
+    [* x x]
+    [* y y]]]
+
+[myfn 4 6]
+</pre>
+</div>
+</section>
+<section id="slide-orgf84abca">
+<h4 id="orgf84abca">And here we go</h4>
+<div class="org-src-container">
+
+<pre  class="src src-lisp">(defn myfn [x y]
+  (+ (* x x)
+     (* y y)))
+
+(myfn 3 6)
+</pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
